@@ -23,6 +23,7 @@ public class ConnectionManager {
         System.out.println(jsObject.getJSONArray("Results").get(80));
         return jsObject.getJSONArray("Results");
     }
+
     JSONArray getConnectionToHandhistory(String handNumber) throws JSONException, IOException {
         String path = "http://localhost:8001/Query?q=" + URLEncoder.encode("select * from handhistories where GameNumber=1304443223" , "UTF-8");
         URLConnection connection = new URL(path).openConnection();

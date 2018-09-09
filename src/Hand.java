@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class Hand {
     String line;
     Integer gameNumber;
-    String position;
+    Position position;
     String holeCards;
     Integer wonLossInBBs;
     String preflopAction;
@@ -17,7 +17,8 @@ public class Hand {
     public Hand(JSONObject jsonObject) {
         this.line = jsonObject.getString("Line");
         this.gameNumber = jsonObject.getInt("GameNumber");
-        this.position = jsonObject.getString("Position");
+        String posTag = jsonObject.getString("Position");
+        this.position = Position.getByTag(posTag);
         this.holeCards = jsonObject.getString("HoleCards");
         this.wonLossInBBs = jsonObject.getInt("WonLossInBBs");
         this.preflopAction = jsonObject.getString("PreflopAction");
